@@ -1,9 +1,9 @@
 # Mobile
 
-- [ ] Configuração inicial
+- [x] Configuração inicial
 - [ ] Telas
-  - [ ] Sign In
   - [ ] Sign Up
+  - [ ] Sign In
   - [ ] Cadastro de Veículo
     - [ ] Formulário
   - [ ] Listagem de Veículos
