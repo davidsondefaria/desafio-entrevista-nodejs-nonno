@@ -9,9 +9,9 @@ const AuthProvider = ({ children }: IAuthProvider) => {
   useEffect(() => {
     const checkAuth = async () => {
       try {
-        // TODO temporary item
-        const auth = await AsyncStorage.getItem('isAuthenticated');
-        setIsAuthenticated(!!auth);
+        const token = await AsyncStorage.getItem('authToken');
+        // TODO temporary string to boolean parser
+        setIsAuthenticated(token === 'true');
       } catch (error) {
         console.error(`Erro na authenticação`, error);
       }
