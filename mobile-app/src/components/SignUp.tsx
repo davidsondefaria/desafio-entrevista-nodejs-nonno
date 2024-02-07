@@ -1,9 +1,9 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import React, { useState } from 'react';
-import { Controller, useForm } from 'react-hook-form';
-import { View, Text, TextInput, Button, ActivityIndicator } from 'react-native';
+import { useForm } from 'react-hook-form';
+import { View, Text, Button, ActivityIndicator } from 'react-native';
+
 import ControlledTextInput from './ControlledTextInput';
-import { useNavigation } from '@react-navigation/native';
 
 const defaultValues = {
   name: '',
@@ -18,6 +18,7 @@ const SignUp = ({ navigation }: ISignUp) => {
     handleSubmit,
     formState: { errors },
     watch,
+    reset,
   } = useForm<ISignUpForm>({ defaultValues, mode: 'onChange' });
   const [loading, setLoading] = useState(false);
 
@@ -27,18 +28,19 @@ const SignUp = ({ navigation }: ISignUp) => {
       console.log(data);
       // TODO chamada para API
       await AsyncStorage.setItem('authToken', 'true');
-      navigation.navigate('TabNavigator');
     } catch (error) {
       console.error('Erro no cadastro', error);
     } finally {
+      navigation.navigate('TabNavigator');
       setLoading(false);
+      reset();
     }
   };
 
   console.log(errors);
   return (
     <View>
-      <Text>Sign Up</Text>
+      <Text>Cadastra-se</Text>
       <ControlledTextInput
         control={control}
         name="name"
