@@ -5,7 +5,7 @@ import { Pressable, StyleSheet } from 'react-native';
 
 import { RootStackParamList } from '.';
 import AuctionScreen from '../screens/AuctionScreen';
-import RegisterAuction from '../screens/RegisteAuction';
+import RegisterAuction from '../screens/RegisterAuction';
 import Settings from '../screens/Settings';
 
 const Tab = createBottomTabNavigator();
