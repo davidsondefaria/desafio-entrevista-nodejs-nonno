@@ -44,9 +44,18 @@ export default function Login() {
           </Pressable>
         </>
       ) : (
-        <Pressable className={styles.button} onPress={handleAuth}>
-          <Text>Sair</Text>
-        </Pressable>
+        <>
+          <Pressable
+            className={styles.button}
+            onPress={() => {
+              navigation.navigate('TabNavigator' as never);
+            }}>
+            <Text>Lista</Text>
+          </Pressable>
+          <Pressable className={styles.button} onPress={handleAuth}>
+            <Text>Sair</Text>
+          </Pressable>
+        </>
       )}
     </View>
   );

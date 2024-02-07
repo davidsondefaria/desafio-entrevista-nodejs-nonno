@@ -32,7 +32,7 @@ const SignIn = ({ navigation, handleAuth }: any) => {
     } finally {
       console.log('authToken', await AsyncStorage.getItem('authToken'));
       setLoading(false);
-      // reset();
+      reset();
     }
   };
 
