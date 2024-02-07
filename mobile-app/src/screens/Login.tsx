@@ -32,11 +32,18 @@ export default function Login() {
     <View className={styles.container}>
       <StatusBar style={Platform.OS === 'ios' ? 'light' : 'auto'} />
       <Text> Autenticado: {isAuthenticated.toString()}!</Text>
-      {isNew ? <SignUp navigation={navigation} /> : <SignIn handleAuth={handleAuth} />}
-      <Pressable className={styles.button} onPress={handleIsNew}>
-        <Text>{isNew ? 'Já tem cadastro? Faça seu login!' : 'Novo aqui? Cadastre-se!'}</Text>
-      </Pressable>
-      {isAuthenticated && (
+      {!isAuthenticated ? (
+        <>
+          {isNew ? (
+            <SignUp navigation={navigation} />
+          ) : (
+            <SignIn navigation={navigation} handleAuth={handleAuth} />
+          )}
+          <Pressable className={styles.button} onPress={handleIsNew}>
+            <Text>{isNew ? 'Já tem cadastro? Faça seu login!' : 'Novo aqui? Cadastre-se!'}</Text>
+          </Pressable>
+        </>
+      ) : (
         <Pressable className={styles.button} onPress={handleAuth}>
           <Text>Sair</Text>
         </Pressable>
